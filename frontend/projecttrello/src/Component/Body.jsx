@@ -1,6 +1,6 @@
 import AddItems from "./AddItems";
 import Filter from "./Filter";
-import {useEffect, useState } from "react";
+import {useState} from "react";
 
 const Body = () => {
   const [Items, setItems] = useState([]);
