@@ -5,5 +5,6 @@ import { SavingBoardName } from "../controllers/board.controller.js";
 const router = Router()
 
 router.route("/boardname").post(verifyJwt,SavingBoardName)
+// router.route("/boardname").post(verifyJwt,SavingBoardName)
 
 export default router

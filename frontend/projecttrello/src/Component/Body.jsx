@@ -6,7 +6,7 @@ const Body = () => {
   const [Items, setItems] = useState([]);
   const [buttonLabel, setButtonLabel] = useState('+ Add List');
 
-
+let boardName = localStorage.getItem("boardName")
   const generateNewList = () => {
     setItems([...Items, Items.length]);
     {setButtonLabel('+ Add Another List')}
@@ -16,7 +16,7 @@ const Body = () => {
   return (
     <div className="flex-wrap gap-2 flex-grow">   
       <div className="w-full mb-4">
-        <Filter />
+      <Filter boardName={boardName} />
       </div>
       
 

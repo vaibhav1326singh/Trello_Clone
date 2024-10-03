@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Bell } from 'lucide-react';
 import axios from "axios"
 
+
 const BoardName = () => {
   const [boardName, setBoardName] = useState('');
   const [error, setError] = useState('');
@@ -21,15 +22,17 @@ const BoardName = () => {
         
         const response = await axios.post('http://localhost:5000/api/v1/board/boardname', { boardName }, {headers});
         console.log(response)
-        // console.log('Board saved:', response.data);
-        navigate('/dashboard'); 
+        // console.log('Board saved:', boardName);
+        localStorage.setItem("boardName",boardName)
+        navigate('/dashboard');
+        console.log('Board saved:', boardName);
       } catch (err) {
-        console.error('Error saving board:', err);
+        console.log('Error saving board:', err);
         setError('Error saving board. Please try again.');
       }
     }
   };
-
+console.log(boardName,"board")
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <header className="bg-blue-600 text-white p-4">
@@ -66,6 +69,7 @@ const BoardName = () => {
 
         
         <div className="w-1/2 flex items-center justify-center">
+        {/* <Filter boardName={boardName} /> */}
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 rounded-full filter blur-xl opacity-50"></div>
             <div className="relative bg-pink-500 rounded-lg shadow-lg p-6 w-96">

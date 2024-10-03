@@ -1,8 +1,9 @@
 import { Board } from '../models/board.model.js';
+import { User } from '../models/user.model.js';
 
 
 const SavingBoardName =async (req,res) =>{
-    const user = req.user
+    // const user = req.user
     const {boardName} = req.body
 
     if (!boardName) {
@@ -17,7 +18,7 @@ const SavingBoardName =async (req,res) =>{
 
         const saveBoard = await newBoard.save()
 
-        return res.status(201).json({ message: 'Board saved successfully' },{saveBoard});
+        return res.status(201).json({ message: 'Board saved successfully',saveBoard });
     } catch (error) {
         console.error("board name is not suitable ",error)
         return res
